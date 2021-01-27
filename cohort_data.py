@@ -14,10 +14,14 @@ def all_houses(filename):
     Return:
       - set[str]: a set of strings
     """
+    cohort_info = open(filename)
 
     houses = set()
 
-    # TODO: replace this with your code
+    for info in cohort_info:
+      house = info.strip().split('|')[2]
+      if house:
+        houses.add(house)
 
     return houses
 
