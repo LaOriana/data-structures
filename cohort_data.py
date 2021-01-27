@@ -53,10 +53,17 @@ def students_by_cohort(filename, cohort='All'):
     Return:
       - list[list]: a list of lists
     """
+    cohort_info = open(filename)
 
     students = []
 
-    # TODO: replace this with your code
+    for info in cohort_info:
+      first_name = info.strip().split('|')[0]
+      last_name = info.strip().split('|')[1]
+      cohort_name = info.strip().split('|')[4]
+    
+      if cohort_name not in ('G', 'I') and cohort in ('All', cohort_name):
+        students.append(f'{first_name} {last_name}')
 
     return sorted(students)
 
