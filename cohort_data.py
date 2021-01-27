@@ -159,11 +159,21 @@ def all_data(filename):
     Return:
       - list[tuple]: a list of tuples
     """
+    cohort_data = open(filename)
 
     all_data = []
 
-    # TODO: replace this with your code
-
+    for info in cohort_data:
+      all_info = info.strip().split('|')
+      first_name = all_info[0]
+      last_name = all_info[1]
+      full_name = f'{first_name} {last_name}'
+      house_name = all_info[2]
+      instructor = all_info[3]
+      cohort_name = all_info[4]
+    
+      all_data.append((full_name, house_name, instructor, cohort_name))
+    
     return all_data
 
 
